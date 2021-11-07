@@ -7,5 +7,18 @@
     <% end %>
 
     </div>
-
 </div>
+
+<% if @returned_pictures != nil%>
+    <%= @returned_pictures.count%> pictures are found from this user.
+    <% @returned_pictures.each do |picture|%>
+        
+        <% if picture.title != "" %>
+            Picture Title: <%= picture.title%>
+        <% end %>
+        <img src="https://live.staticflickr.com/<%=picture.server%>/<%=picture.id%>_<%=picture.secret%>.jpg" alt="" />
+
+    <% end %>
+
+
+<% end %>
