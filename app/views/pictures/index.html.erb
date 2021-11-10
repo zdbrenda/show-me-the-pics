@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
-        <h1>Pictures from user </h1>
+        <h1 class="title">Pictures from Your Selected User ID:  </h1>
         <%= simple_form_for :search, url: root_path, method: "GET", html: {class: 'form_inline'} do |f| %>
+        <h2>Enter the User ID you are interested in here:</h2>
         <%= f.input :user_id, input_html: {value: ""}%>
         <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
@@ -10,13 +11,12 @@
 </div>
 
 <% if @returned_pictures != nil%>
-    <%= @returned_pictures.count%> pictures are found from this user.
     <% @returned_pictures.each do |picture|%>
         
-        <% if picture.title != "" %>
-            Picture Title: <%= picture.title%>
+        <div class="showing"> <% if picture.title != "" %>
+            <%= picture.title %>
         <% end %>
-        <img src="https://live.staticflickr.com/<%=picture.server%>/<%=picture.id%>_<%=picture.secret%>.jpg" alt="" />
+        <img src="https://live.staticflickr.com/<%=picture.server%>/<%=picture.id%>_<%=picture.secret%>.jpg" alt="" /></div>
 
     <% end %>
 
