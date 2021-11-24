@@ -41,4 +41,4 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
-/configi/flickr_config.rb
+/config/flickr_config.rb
